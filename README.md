@@ -1,14 +1,23 @@
+MELD Web Services
+=================
+
 Overview
 --------
+This repository provides a reference implementation of the session and annotation services providing a server-side implementation of the MELD (Music Encoding and Linked Data) Framework.
 
-Basic documentation available at: https://github.com/oerc-music/meld
+For an overview of MELD, please see: [oerc-music/meld](http://github.com/oerc-music/meld).
 
-Running MELD services                                                  
----------------------                                                  
-* cd server                                                            
-* pip install -r requirements.txt  #(or use a virtualenv)              
-* source set_env.sh                                                    
-* python manage.py runserver #(default port: 5000)     
+To install:
+-----------
+```
+git clone git@github.com:oerc-music/meld-web-services
+cd meld-web-services
+pip install -r requirements.txt #(or use a virtualenv)
+source set_env.sh 
+python manage.py runserver #(default port: 5000)
+```
+This code depends on a number of Python modules, including Flask (web server), and PyLD, rdflib, and SPARQLWrapper (Linked Data functionalities around RDF graph handling, JSON-LD conversion, and SPARQL querying). A full listing of the dependencies is available in the requirements.txt file.  
+
 
 Creating a session                                                     
 ------------------                                                     
