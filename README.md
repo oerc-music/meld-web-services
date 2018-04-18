@@ -1,8 +1,6 @@
 MELD Web Services
 =================
 
-Overview
---------
 This repository provides a reference implementation of the session and annotation services providing a server-side implementation of the MELD (Music Encoding and Linked Data) Framework.
 
 For an overview of MELD, please see: [oerc-music/meld](http://github.com/oerc-music/meld).
