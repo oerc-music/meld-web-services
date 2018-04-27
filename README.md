@@ -14,7 +14,13 @@ pip install -r requirements.txt #(or use a virtualenv)
 source set_env.sh 
 python manage.py runserver #(default port: 5000)
 ```
-This code depends on a number of Python modules, including Flask (web server), and PyLD, rdflib, and SPARQLWrapper (Linked Data functionalities around RDF graph handling, JSON-LD conversion, and SPARQL querying). A full listing of the dependencies is available in the requirements.txt file.  
+
+If you run into missing header files while trying the pip install step, you may first need to install the following packages using your OS package manager:
+
+* libxml2-dev
+* libxml2-dev
+
+This code depends on a number of Python2 modules, including Flask (web server), and PyLD, rdflib, and SPARQLWrapper (Linked Data functionalities around RDF graph handling, JSON-LD conversion, and SPARQL querying). A full listing of the dependencies is available in the requirements.txt file.  
 
 
 Creating a session                                                     
