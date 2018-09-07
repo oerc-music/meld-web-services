@@ -9,7 +9,7 @@ Please refer to the notes below on both our custom implementation, and on settin
 
 For an overview of MELD, please see: [oerc-music/meld](http://github.com/oerc-music/meld).
 
-Custom implementation of Session and Annotation Services
+Custom implementation: Session and Annotation Services
 ========================================================
 
 To install:
