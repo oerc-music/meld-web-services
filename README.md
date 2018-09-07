@@ -1,9 +1,16 @@
 MELD Web Services
 =================
 
-This repository provides a reference implementation of the session and annotation services providing a server-side implementation of the MELD (Music Encoding and Linked Data) Framework.
+MELD Web Services are a collection of services that may be run in support of MELD applications, depending on their requirements. Historically, this has been fulfilled by the custom Flask/Python implementation of Session and Annotation Services forming the majority of the code in this repository.
+
+Standard LDP servers provide an alternative to this custom implementation, in conjunction to the annotation templates within this repository. We have tested MELD with the [GOLD Linked Data Platform server](https://github.com/linkeddata/gold).
+
+Please refer to the notes below on both our custom implementation, and on setting up a GOLD server.
 
 For an overview of MELD, please see: [oerc-music/meld](http://github.com/oerc-music/meld).
+
+Custom implementation of Session and Annotation Services
+========================================================
 
 To install:
 -----------
@@ -62,3 +69,44 @@ the response
 3. Check the response status. If it's 201 (CREATED), we're done. If    
 it's 412 (PRECONDITION FAILED), the file changed before our POST got   
 through - so repeat from step 1.    
+
+
+Running a standard LDP server (GOLD)
+====================================
+We have successfully tested [GOLD Linked Data Platform server](https://github.com/linkeddata/gold) as an off-the-shelf alternative to the custom implementation above. Here are our notes on getting GOLD to run:
+
+## Install GOLD
+
+Get dependencies Ubuntu:
+
+    sudo apt-get install golang-go libraptor2-dev libmagic-dev
+
+CentOS:
+
+    sudo yum install golang raptor2-devel file-devel
+
+Mac seems to be (untested): `brew install go raptor libmagic`
+
+Setup paths and check go version:
+
+    mkdir ~/go
+    export GOPATH=~/go
+    go version
+
+Reported to need version >= 1.4
+
+Install with go get:
+
+    go get github.com/linkeddata/gold/server
+
+## Run server
+
+Make a data dir; copy config to server dir then edit to point to data dir:
+
+    mkdir PATH-TO-DATA-DIR/gold-data/
+    cp gold.conf $GOPATH/src/github.com/linkeddata/gold/server/gold.conf
+    vi $GOPATH/src/github.com/linkeddata/gold/server/gold.conf
+
+Start the server:
+
+    $GOPATH/bin/server -conf=$GOPATH/src/github.com/linkeddata/gold/server/gold.conf
